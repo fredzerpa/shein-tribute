@@ -95,7 +95,8 @@ h2.section-title a:hover {
 }
 
 section.carousel div.carousel-track {
-  padding: 2rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
 }
 
 section.carousel .slide {
