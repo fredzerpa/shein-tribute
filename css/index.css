@@ -14,7 +14,7 @@ section.hero-container {
   padding: 2rem;
   height: calc(90vh - 10rem); /* 8rem from Header height+magin(top+bot) */
   margin-bottom: 10vh;
-  background: url('../assets/images/hero-image-pc.jpg')
+  background: url('../assets/images/home/hero-image-pc.jpg')
     center center no-repeat;
   background-size: cover;
   box-shadow: 0px 0px 10px black;
@@ -52,7 +52,7 @@ h1.hero-text {
 /* Phones View */
 @media only screen and (max-width: 767px) {
   section.hero-container {
-    background-image: url('../assets/images/hero-image-mobiles.jpg');
+    background-image: url('../assets/images/home/hero-image-mobiles.jpg');
     display: flex;
     flex-flow: column;
     justify-content: flex-end;
