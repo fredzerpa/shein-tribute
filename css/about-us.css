@@ -8,7 +8,7 @@
 section.about-us {
   display: flex;
   flex-flow: wrap;
-  margin-bottom: 4rem;
+  margin-bottom: 6rem;
 }
 section.about-us aside.container {
   width: 50%;
@@ -48,7 +48,7 @@ p.text a {
 /* SHEIN At-a-Glance Section */
 section.at-a-glance {
   width: 100%;
-  margin-bottom: 4rem;
+  margin-bottom: 6rem;
 }
 
 section.at-a-glance .title {
@@ -103,7 +103,7 @@ article.glance {
 section.history {
   display: flex;
   flex-flow: wrap;
-  margin-bottom: 4rem;
+  margin-bottom: 6rem;
 }
 
 /* Image */
