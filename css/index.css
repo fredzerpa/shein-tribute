@@ -4,11 +4,6 @@
 /* Footer Section */
 @import url('./footer.css');
 
-/* Main Section */
-
-main {
-  width: 100%;
-}
 
 /* Hero Section */
 
@@ -17,7 +12,7 @@ section.hero-container {
   background-color: gainsboro;
   border-radius: 1.5rem;
   padding: 2rem;
-  height: calc(90vh - 10rem); /* 8rem del Header height+magin(top+bot) */
+  height: calc(90vh - 10rem); /* 8rem from Header height+magin(top+bot) */
   margin-bottom: 10vh;
   background: url('../assets/images/hero-image-pc.jpg')
     center center no-repeat;
