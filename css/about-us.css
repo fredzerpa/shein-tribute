@@ -160,6 +160,10 @@ article.our-history {
     align-items: center;
   }
 
+  section.at-a-glance .title {
+    text-align: center;
+  }
+
   .card {
     height: 20rem;
     margin-bottom: 2rem;
