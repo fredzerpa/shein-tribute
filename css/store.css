@@ -26,15 +26,34 @@
 .card-body {
   width: 100%;
   display: flex;
-  justify-content: space-between;
+  flex-flow: column;
+}
+
+.card-body .details {
+  display: flex;
+  flex-flow: column;
+}
+
+.details > * {
+  width: 100%;
+}
+
+.details .product-cost {
+  font-weight: bold;
+  font-size: large;
 }
 
 .card-body .add-to-cart {
+  align-self: flex-end;
   background-color: black;
   color: white;
   padding: 0.75rem 1.5rem;
   text-transform: uppercase;
   text-decoration: none;
+  text-align: center;
+}
+.card-body .add-to-cart:hover {
+  text-decoration: underline;
 }
 
 @media only screen and (max-width: 600px) {
