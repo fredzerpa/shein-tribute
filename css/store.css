@@ -38,6 +38,10 @@
   width: 100%;
 }
 
+.details .product-description {
+  height: 40px;
+}
+
 .details .product-cost {
   font-weight: bold;
   font-size: large;
@@ -64,4 +68,25 @@
   .card {
     min-height: 225px;
   }
+  
+  .details {
+    margin-bottom: .5rem;
+  }
+
+  .details .product-description {
+    font-size: smaller;
+    height: 50px;
+    
+  }
+  .details .product-cost {
+    font-weight: bold;
+    /* font-size: medium; */
+    text-align: end;
+  }
+
+  .add-to-cart {
+    width: 100%;
+  }
 }
+
+
