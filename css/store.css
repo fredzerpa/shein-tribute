@@ -1,8 +1,11 @@
 @import url('./global.css');
 /* Navigation Bar Section */
 @import url('./header.css');
+/* Pagination Section */
+@import url('./pagination.css');
 /* Footer Section */
 @import url('./footer.css');
+
 
 .container {
   display: grid;
@@ -59,6 +62,7 @@
 }
 .card-body .add-to-cart:hover {
   text-decoration: underline;
+  cursor: pointer;
   /* background-color: white;
   color: black; */
 }

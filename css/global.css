@@ -23,6 +23,7 @@ body {
 main {
   width: 100%;
   min-height: calc(100vh - 27rem); /* 27rem from Body, Header & Footer */
+  margin-bottom: 4rem;
 }
 
 /* Tablets View */

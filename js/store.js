@@ -100,17 +100,61 @@ const PRODUCTS = [
     imageUrl: "https://img.ltwebstatic.com/images3_pi/2022/06/06/1654498296bbb6e69434ea17d0bcc16ad6a0743f32_thumbnail_405x552.jpg",
     price: "9,00€"
   }
-]
+];
 
 const containerEl = document.body.querySelector('section.container');
 
-function createCard({ imageUrl, productName, price }) {
-  const card = `
+function createCard(item) {
+  const { goods_img: imageUrl, goods_name: productName, salePrice: { usdAmountWithSymbol: price } } = item;
+
+  const articleEl = document.createElement('article');
+
+  const cardHeadEl = document.createElement('div');
+  cardHeadEl.classList.add('card-head');
+  articleEl.appendChild(cardHeadEl);
+
+
+  const imgEl = document.createElement('img');
+  imgEl.src = imageUrl;
+  imgEl.setAttribute('alt', 'Product');
+  imgEl.setAttribute('loading', 'lazy');
+  cardHeadEl.appendChild(imgEl);
+
+
+  const cardBodyEl = document.createElement('div');
+  cardBodyEl.classList.add('card-body');
+  articleEl.appendChild(cardBodyEl);
+
+
+  const detailsEl = document.createElement('p');
+  detailsEl.classList.add('details');
+  cardBodyEl.appendChild(detailsEl);
+
+  const productDescriptionEl = document.createElement('span');
+  productDescriptionEl.classList.add('product-description');
+  productDescriptionEl.textContent = productName;
+  detailsEl.appendChild(productDescriptionEl);
+
+  const productCostEl = document.createElement('span');
+  productCostEl.classList.add('product-cost');
+  productCostEl.textContent = price;
+  detailsEl.appendChild(productCostEl);
+
+  const addToCartBtn = document.createElement('a');
+  addToCartBtn.classList.add('add-to-cart');
+  addToCartBtn.textContent = 'Add To Cart';
+  addToCartBtn.addEventListener('click', e => addToCart(item));
+  cardBodyEl.appendChild(addToCartBtn);
+
+  const card = articleEl;
+  /*
+  CARD LAYOUT
   <article class="card">
     <div class="card-head">
       <img
         src=${imageUrl}
         alt="Product"
+        loading="lazy"
       />
     </div>
     <div class="card-body">
@@ -120,13 +164,37 @@ function createCard({ imageUrl, productName, price }) {
         </span>
         <span class="product-cost">${price}</span>
       </p>
-      <a class="add-to-cart" href="#">Add To Cart</a>
+      <a class="add-to-cart">Add To Cart</a>
     </div>
-  </article>`
+  </article>
+  */
 
   return card;
 }
 
-// PRODUCTS.forEach(function (product) {
-//   containerEl.innerHTML += createCard(product);
-// });
+function addToCart(item) {
+  console.log(item)
+}
+
+
+
+async function getProducts(page = 1) {
+  try {
+    const response = await fetch(`https://api.allorigins.win/get?url=${encodeURIComponent(`https://eur.shein.com/c-index/getProducts?_lang=en&_ver=1.1.8&limit=24&page=${page}&routeId=00200200&type=selection`)}`);
+    const data = await response.json();
+    const products = JSON.parse(data.contents);
+    return products;
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Get URL Params to display corresponding products
+const queryParams = new URLSearchParams(window.location.search);
+const currentPage = Number(queryParams.get('page')) === 0 ? 1 : Number(queryParams.get('page'));
+
+getProducts(currentPage).then(products => {
+  products.forEach(function (product) {
+    containerEl.appendChild(createCard(product));
+  });
+})
