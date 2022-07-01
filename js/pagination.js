@@ -1,9 +1,5 @@
-// selecting required element
-const element = document.querySelector(".pagination ul");
 let totalPages = 20;
 
-//calling function with passing parameters and adding inside element which is ul tag
-element.innerHTML = createPagination(totalPages, currentPage);
 function createPagination(totalPages, page) {
 
   let liTag = '';
